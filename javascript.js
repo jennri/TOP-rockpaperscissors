@@ -1,3 +1,18 @@
+const playerText = document.querySelector("#playerID")
+const computerText = document.querySelector("#CompID")
+const resultTest = document.querySelector("#ResultID")
+const choiceButtons = document.querySelector(".buttonchoice")
+
+
+choiceButtons.forEach(button => button.addEventListener("click", () =>  {
+
+    playerSelection = button.textContent;
+    computerRandomiser();
+    playerText.textContent = `Player: ${player}`;
+    computerText.textContent = `Computer: ${computer}`;
+    resultsText.textContent = gameRoundWinner();
+}))
+
 //Computer random choice of rock paper or scissors
 function computerRandomiser() {
     const options = ["rock", "paper", "scissor"]
@@ -8,7 +23,7 @@ function computerRandomiser() {
 let totalPlayerScore = 0;
 let totalCompScore = 0;
 
-function gameRound(playerSelect) {
+function gameRoundWinner() {
     let computerSelection = computerRandomiser()
     let playerSelection = playerSelect.toLowerCase();
     let whoWon;
@@ -63,9 +78,3 @@ function gameRound(playerSelect) {
 
     return whoWon;
 }
-
-
-console.log(gameRound("rock"));
-
-
-console.log(totalCompScore + " " + totalPlayerScore)
