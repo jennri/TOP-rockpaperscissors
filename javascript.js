@@ -14,23 +14,34 @@ let totalCompScore = 0;
 
 choiceBtn.forEach(button => button.addEventListener("click", () =>  {
     playerSelection = button.textContent;
+    duringGame();
     computerRandomiser();
-    playerText.textContent = `Player: ${playerSelection}`;
-    computerText.textContent = `Computer: ${computerSelection}`;
     resultText.textContent = gameRoundWinner();
-    computerScore.textContent = `Opponent score count: ${totalCompScore}`
-    humanScore.textContent = `Your score count: ${totalPlayerScore}`
+    endGame();
+    }
+))
+
+//Pop up functions
+function endGame() {    
     if (totalPlayerScore == 5) {
-        winner.textContent = `You won, it's by chance though`
-    }
+    winner.textContent = `You won, it's by chance though`
+    document.getElementById("popup").style.display = "block";
+}
     if (totalCompScore == 5){
-        winner.textContent = `You Lost...`
-    }
-}))
+    winner.textContent = `You Lost...`
+    document.getElementById("popup").style.display = "block";
+}
+    
+}
+
+function duringGame() {
+    document.getElementById("popup").style.display = "none";
+}
 
 
 //Play Again button
-
+const resetBtn = document.querySelector(".reset")
+resetBtn.addEventListener('click', () => location.reload());
 
 //Computer random choice of rock paper or scissors
 function computerRandomiser() {
@@ -81,6 +92,9 @@ function gameRoundWinner() {
                 break;
         }
     }
-
+    playerText.textContent = `Player: ${playerSelection}`;
+    computerText.textContent = `Computer: ${computerSelection}`;
+    computerScore.textContent = `Opponent score count: ${totalCompScore}`
+    humanScore.textContent = `Your score count: ${totalPlayerScore}`
     return result;
 }

@@ -8,14 +8,17 @@
     <link rel="stylesheet" hred="style.css">
 </head>
 <body>
+    
     <div id="gameDiv"> 
+        
     <h1 class="gametext" id="playerText"> Player: </h1>
     <h1 class="gametext" id="computerText"> Computer: </h1>
     <h1 class="gametext" id="resultText"> Result: </h1>
 
-    <button class="choiceBtn">Rock</button>
-    <button class="choiceBtn">Paper</button>
-    <button class="choiceBtn">Scissors</button>
+    <button class="choiceBtn" id="Rock">Rock</button>
+    <button class="choiceBtn" id="Paper">Paper</button>
+    <button class="choiceBtn" id="Scissors">Scissors</button>
+    
 
     <p class="tally_computer">Opponent score count: </p>
     <p class="tally_human">Your score count: </p>
@@ -23,11 +26,9 @@
     <p class="winner">Who shall conquer who?</p>
     </div>
 
-    <div class="popup"> 
+    <div id="popup">
         <p> Herro </p>
         <button class="reset">Play Again</button>
-
-
     </div>
     <script src=javascript.js></script>
 </body>
