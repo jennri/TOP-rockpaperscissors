@@ -25,13 +25,12 @@ choiceBtn.forEach(button => button.addEventListener("click", () =>  {
 function endGame() {    
     if (totalPlayerScore == 5) {
     winner.textContent = `You won, it's by chance though`
-    document.getElementById("popup").style.display = "block";
 }
     if (totalCompScore == 5){
     winner.textContent = `You Lost...`
-    document.getElementById("popup").style.display = "block";
+   
 }
-    
+document.getElementById("popup").style.display = "block";
 }
 
 function duringGame() {
