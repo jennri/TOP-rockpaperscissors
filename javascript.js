@@ -1,40 +1,35 @@
-//All this, I have no idea what it does. Looked at a tutorial on youtube. 
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
-const choiceBtns = document.querySelectorAll(".choiceBtn");
-const tallyComputer = document.querySelector(".tally_computer");
-const tallyHuman = document.querySelector(".tally_human");
-const winner = document.querySelector(".victory_screen");
+const choiceBtn = document.querySelectorAll(".choiceBtn");
+const computerScore = document.querySelector(".tally_computer")
+const humanScore = document.querySelector(".tally_human")
+const winner = document.querySelector(".winner")
 
-//Declaring global variables
 let playerSelection;
 let computerSelection;
 let result;
 let totalPlayerScore = 0;
 let totalCompScore = 0;
 
-//When a button is clicked by the player
-choiceBtns.forEach(button => button.addEventListener("click", () =>  {
+choiceBtn.forEach(button => button.addEventListener("click", () =>  {
     playerSelection = button.textContent;
     computerRandomiser();
     playerText.textContent = `Player: ${playerSelection}`;
     computerText.textContent = `Computer: ${computerSelection}`;
     resultText.textContent = gameRoundWinner();
-    tallyComputer.textContent = `Opponent score count: ${totalCompScore}`
-    tallyHuman.textContent = `Your score count: ${totalPlayerScore}`
-    if (totalCompScore == 5) {
-        winner.textContent = `You Lost...`
-        totalPlayerScore = 0;
-        totalCompScore = 0;
-    }
+    computerScore.textContent = `Opponent score count: ${totalCompScore}`
+    humanScore.textContent = `Your score count: ${totalPlayerScore}`
     if (totalPlayerScore == 5) {
-        winner.textContent = `You Won!`
-        totalPlayerScore = 0;
-        totalCompScore = 0;
+        winner.textContent = `You won, it's by chance though`
+    }
+    if (totalCompScore == 5){
+        winner.textContent = `You Lost...`
     }
 }))
 
+
+//Play Again button
 
 
 //Computer random choice of rock paper or scissors
@@ -52,7 +47,7 @@ function gameRoundWinner() {
     }
     if (playerSelection == "Rock") {
         switch (computerSelection) {
-            case "Scissors":
+            case "Scissor":
                 result = "You win! Rock beats scissors"
                 totalPlayerScore += 1
                 break;
@@ -80,12 +75,12 @@ function gameRoundWinner() {
                 result = "You Lose! Scissors beats paper"
                 totalCompScore += 1
                 break;
-            case "Pock":
+            case "Rock":
                 result = "You Win! Paper beats rock"
                 totalPlayerScore += 1
                 break;
         }
     }
+
     return result;
 }
-
