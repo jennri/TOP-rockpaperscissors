@@ -1,53 +1,71 @@
-function computerSelection(){
+//Computer random choice of rock paper or scissors
+function computerRandomiser() {
     const options = ["rock", "paper", "scissor"]
-    let position = Math.floor(Math.random()*options.length)
-    return options[position]
+    let position = Math.floor(Math.random() * options.length)
+    return options[position];
 }
 
-let compSelect = computerSelection();
-console.log(compSelect)
+let totalPlayerScore = 0;
+let totalCompScore = 0;
 
-function gameRound (playerSelection) {
-    let playerSelect = playerSelection.toLowerCase();
-    console.log(playerSelect, playerSelection);
+function gameRound(playerSelect) {
+    let computerSelection = computerRandomiser()
+    let playerSelection = playerSelect.toLowerCase();
+    let whoWon;
 
-    if (playerSelect === "rock") {
-        let x = compSelect;
-        switch (x) {
-            case "rock":
-                return "Tie!"
+    if (computerSelection == playerSelection) {
+        whoWon = "Tie!"
+    }
+    if (playerSelection == "rock") {
+        switch (computerSelection) {
             case "scissor":
-                return "You Lose! Rock beats Scissors"
+                whoWon = "You win! Rock beats scissor"
+                totalPlayerScore += 1
+                break;
             case "paper":
-                return "You Win! Paper beats Rock"
+                whoWon = "You Lose! Paper beats rock"
+                totalCompScore += 1
+                break;
+        }
+    }
+    if (playerSelection == "scissor") {
+        switch (computerSelection) {
+            case "rock":
+                whoWon = "You Lose! Rock beats scissor"
+                totalCompScore += 1
+                break;
+            case "paper":
+                whoWon = "You Win! Scissor beats paper"
+                totalPlayerScore += 1
+                break;
+        }
+    }
+    if (playerSelection == "paper") {
+        switch (computerSelection) {
+            case "scissor":
+                whoWon = "You Lose! Scissor beats paper"
+                totalCompScore += 1
+                break;
+            case "rock":
+                whoWon = "You Win! Paper beats rock"
+                totalPlayerScore += 1
+                break;
         }
     }
 
-    if (playerSelect === "scissor") {
-        let x = compSelect;
-        switch (x) {
-            case "rock":
-                return "You Lose! Rock beats Scissors"
-            case "scissor":
-                return "Tie!"
-            case "paper":
-                return "You Win! Scissors beats Paper"
-        }
+    if (totalPlayerScore == 5) {
+        return whoWon + " You won the game!"
     }
 
-    if (playerSelect === "paper") {
-        let x = compSelect;
-        switch (x) {
-            case "rock":
-                return "You Win! Paper beats Rock"
-            case "scissor":
-                return "You Lose! Scissors beats Paper"
-            case "paper":
-                return "Tie!"
-        }
-    } else {
-        return "Please us either rock, paper or scissors as your choice."
+    if (totalCompScore == 5) {
+        return whoWon + " You lost the game!"
     }
+
+    return whoWon;
 }
 
-console.log(gameRound("PaPper"));
+
+console.log(gameRound("rock"));
+
+
+console.log(totalCompScore + " " + totalPlayerScore)
