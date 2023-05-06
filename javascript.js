@@ -54,7 +54,7 @@ function gameRoundWinner(playerSelection) {
     }
     if (playerSelection == "Rock") {
         switch (computerSelection) {
-            case "Scissor":
+            case "Scissors":
                 result = "You win! Rock beats scissors"
                 totalPlayerScore += 1
                 break;
