@@ -1,41 +1,49 @@
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
-const choiceBtnRock = document.querySelector("#rock");
-const choiceBtnPaper = document.querySelector("#paper");
-const choiceBtnScissors = document.querySelector("#scissors");
+const choiceBtn = document.querySelectorAll(".choiceBtn");
 const computerScore = document.querySelector(".tally_computer")
 const humanScore = document.querySelector(".tally_human")
 const winner = document.querySelector(".winner")
 
-choiceBtnRock.addEventListener('click', () => gameOrder("Rock"))
-choiceBtnPaper.addEventListener('click', () => gameOrder("Paper"))
-choiceBtnScissors.addEventListener('click', () => gameOrder("Scissors"))
-document.getElementById("endGame").style.display = "none";
-
-//Game
+let playerSelection;
 let computerSelection;
 let result;
 let totalPlayerScore = 0;
 let totalCompScore = 0;
-let round = 0;
+let round=0;
 
-//Order of Game
-function gameOrder(playerSelection){
+choiceBtn.forEach(button => button.addEventListener("click", () =>  {
+    playerSelection = button.textContent;
+    duringGame();
     computerRandomiser();
-    gameRoundWinner(playerSelection)
-    playerText.textContent = `You: ${playerSelection}`;
+    playerText.textContent = `Player: ${playerSelection}`;
     computerText.textContent = `Computer: ${computerSelection}`;
     computerScore.textContent = `Opponent score count: ${totalCompScore}`
     humanScore.textContent = `Your score count: ${totalPlayerScore}`
-    resultText.textContent = result;
-    if (totalPlayerScore == 5 || totalCompScore == 5) {
-        endGame();
+    resultText.textContent = gameRoundWinner();
+    endGame();
     }
+))
 
+//Pop up functions
+function endGame() {    
+    if (totalPlayerScore == 5) {
+    winner.textContent = `You won, it's by chance though`
+}
+    if (totalCompScore == 5){
+    winner.textContent = `You Lost...`
+}
+document.getElementById("popup").style.display = "block";
 }
 
-//Reset Button
+function duringGame() {
+    document.getElementById("popup").style.display = "none";
+}
+
+
+
+//Play Again button
 const resetBtn = document.querySelector(".reset")
 resetBtn.addEventListener('click', () => location.reload());
 
@@ -48,7 +56,7 @@ function computerRandomiser() {
 }
 
 //Declaring round winner
-function gameRoundWinner(playerSelection) { 
+function gameRoundWinner() {
     if (computerSelection == playerSelection) {
         result = "Tie!"
     }
@@ -91,22 +99,3 @@ function gameRoundWinner(playerSelection) {
 
     return result;
 }
-
-//Declaring Winner
-function endGame() {    
-    if (totalPlayerScore == 5 ) {
-        winner.textContent = `You won, it's by chance though`
-    } 
-    if (totalCompScore == 5) {
-        winner.textContent = `You Lost...`
-    }
-    //Disables buttons and pops up the play again button
-    choiceBtnRock.setAttribute('disabled', '')
-    choiceBtnPaper.setAttribute('disabled', '')
-    choiceBtnScissors.setAttribute('disabled', '')
-    document.getElementById("endGame").style.display = "block";
-
-       
-    }
-
-
