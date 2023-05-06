@@ -49,7 +49,7 @@ function computerRandomiser() {
 
 //Declaring round winner
 function gameRoundWinner(playerSelection) { 
-    if (computerSelection == playerSelection) {
+    if (computerSelection === playerSelection) {
         result = "Tie!"
     }
     if (playerSelection == "Rock") {
