@@ -4,7 +4,49 @@ html {
     border: 0;
     height: 100vh;
     font-family: Geologica, serif;
-    display: flex;
-    align-items: center;
 }
+
+.gameContainer{
+    background-color: beige;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.roundtext{
+    background-color: bisque;
+}
+
+.roundtext p {
+    display: flex;
+    justify-content: center;
+}
+
+.gametext1,
+.gametext2 {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gametext2 {
+    min-height: 100px;
+}
+
+.gametext3{
+    display: flex;
+    justify-content: center;
+    min-height: 85px;
+}
+
+.buttondiv, 
+.winnerDiv,
+.endDiv{
+    display: flex;
+    justify-content: center;
+}
+
+
+
 

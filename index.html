@@ -11,24 +11,48 @@
 <body>
     
 <div id="gameDiv" class="gameContainer"> 
-    <p class="round" id="round">Round: </p>
-        
-    <h1 class="gametext" id="playerText"> You: </h1>
-    <h1 class="gametext" id="computerText"> Computer: </h1>
-    <h1 class="gametext" id="resultText"> Result: </h1>
 
-    <button class="choiceBtn" id="rock">Rock</button>
-    <button class="choiceBtn" id="paper">Paper</button>
-    <button class="choiceBtn" id="scissors">Scissors</button>
+    <div class="roundtext">
+        <p class="round" id="round">Round: </p>
+    </div>
+
+     
+    <div class="gametext1">
+        <div>
+            <h2>Your choice </h2> 
+            <p class="tally_human">Your score count: </p>
+        </div>
+        <div>
+            <h2>Computers Choice </h2>
+            <p class="tally_computer">Opponent score count: </p>
+        </div>
+    </div>
+
+    <div class="gametext2">
+        <h1 id="playerText"></h1>
+        <h1 id="computerText"></h1>
+    </div>
+
+    <div class="gametext3">
+        <h1 id="resultText"></h1>
+    </div>
+    
+ 
+    <div class="buttondiv">
+        <button class="choiceBtn" id="rock">Rock</button>
+        <button class="choiceBtn" id="paper">Paper</button>
+        <button class="choiceBtn" id="scissors">Scissors</button>
+    </div>
+
+    <div class="winnerDiv">
+        <p class="winner">Are you smarter than a computer?</p>
+    </div>
+
+
     
 
-    <p class="tally_computer">Opponent score count: </p>
-    <p class="tally_human">Your score count: </p>
+    <div class="endDiv" id="endGame">
 
-    <p class="winner">Who shall conquer who?</p>
-    
-
-    <div id="endGame">
         <button class="reset">Play Again</button>
     </div>
 

@@ -26,8 +26,8 @@ function gameOrder(playerSelection){
     computerRandomiser();
     gameRoundWinner(playerSelection)
     roundText.textContent = `Round: ${round}`;
-    playerText.textContent = `You: ${playerSelection}`;
-    computerText.textContent = `Computer: ${computerSelection}`;
+    playerText.textContent = `${playerSelection}`;
+    computerText.textContent = `${computerSelection}`;
     computerScore.textContent = `Opponent score count: ${totalCompScore}`
     humanScore.textContent = `Your score count: ${totalPlayerScore}`
     resultText.textContent = result;
@@ -104,16 +104,16 @@ function gameRoundWinner(playerSelection) {
 //Declaring Winner
 function endGame() {    
     if (totalPlayerScore == 5 ) {
-        winner.textContent = `You won, it's by chance though`
+        winner.textContent = `You won! Take that, computer!`
     } 
     if (totalCompScore == 5) {
-        winner.textContent = `You Lost...`
+        winner.textContent = `You Lost...Don't worry this is a game of chance`
     }
     //Disables buttons and pops up the play again button
     choiceBtnRock.setAttribute('disabled', '')
     choiceBtnPaper.setAttribute('disabled', '')
     choiceBtnScissors.setAttribute('disabled', '')
-    document.getElementById("endGame").style.display = "block";
+    document.getElementById("endGame").style.display = "flex";
 
        
     }
