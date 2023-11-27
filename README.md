@@ -1,4 +1,6 @@
-The Odin Project - Rock Paper Scissors
+Rock Paper Scissors Project from The Odin Project
+Used javascript, HTML and CSS
+Preview https://jennri.github.io/TOP-rockpaperscissors/
 
 06/05/2023
 Working operational game
