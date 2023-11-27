@@ -1,6 +1,7 @@
 const playerText = document.querySelector("#playerText");
 const computerText = document.querySelector("#computerText");
 const resultText = document.querySelector("#resultText");
+const roundText = document.querySelector("#round")
 const choiceBtnRock = document.querySelector("#rock");
 const choiceBtnPaper = document.querySelector("#paper");
 const choiceBtnScissors = document.querySelector("#scissors");
@@ -24,6 +25,7 @@ let round = 0;
 function gameOrder(playerSelection){
     computerRandomiser();
     gameRoundWinner(playerSelection)
+    roundText.textContent = `Round: ${round}`;
     playerText.textContent = `You: ${playerSelection}`;
     computerText.textContent = `Computer: ${computerSelection}`;
     computerScore.textContent = `Opponent score count: ${totalCompScore}`
@@ -51,16 +53,19 @@ function computerRandomiser() {
 function gameRoundWinner(playerSelection) { 
     if (computerSelection === playerSelection) {
         result = "Tie!"
+        round += 1
     }
     if (playerSelection == "Rock") {
         switch (computerSelection) {
             case "Scissors":
                 result = "You win! Rock beats scissors"
                 totalPlayerScore += 1
+                round += 1
                 break;
             case "Paper":
                 result = "You Lose! Paper beats rock"
                 totalCompScore += 1
+                round += 1
                 break;
         }
     }
@@ -69,10 +74,12 @@ function gameRoundWinner(playerSelection) {
             case "Rock":
                 result = "You Lose! Rock beats scissors"
                 totalCompScore += 1
+                round += 1
                 break;
             case "Paper":
                 result = "You Win! Scissors beats paper"
                 totalPlayerScore += 1
+                round += 1
                 break;
         }
     }
@@ -81,10 +88,12 @@ function gameRoundWinner(playerSelection) {
             case "Scissors":
                 result = "You Lose! Scissors beats paper"
                 totalCompScore += 1
+                round += 1
                 break;
             case "Rock":
                 result = "You Win! Paper beats rock"
                 totalPlayerScore += 1
+                round += 1
                 break;
         }
     }

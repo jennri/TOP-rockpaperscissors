@@ -1,1 +1,10 @@
-/* maybe a card style game*/
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100vh;
+    font-family: Geologica, serif;
+    display: flex;
+    align-items: center;
+}
+

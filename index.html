@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
-    <link rel="stylesheet" hred="style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Geologica">
 </head>
 <body>
     
-<div id="gameDiv"> 
+<div id="gameDiv" class="gameContainer"> 
+    <p class="round" id="round">Round: </p>
         
     <h1 class="gametext" id="playerText"> You: </h1>
     <h1 class="gametext" id="computerText"> Computer: </h1>
@@ -19,7 +21,7 @@
     <button class="choiceBtn" id="paper">Paper</button>
     <button class="choiceBtn" id="scissors">Scissors</button>
     
-    <p class="round">Round: </p>
+
     <p class="tally_computer">Opponent score count: </p>
     <p class="tally_human">Your score count: </p>
 
@@ -27,7 +29,6 @@
     
 
     <div id="endGame">
-        <p> Herro </p>
         <button class="reset">Play Again</button>
     </div>
 
